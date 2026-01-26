@@ -9,20 +9,20 @@
 
 body {
     min-height: 100vh;
-            background: linear-gradient(135deg,
-                    rgba(255, 209, 220, 0.85) 0%,
-                    rgba(230, 230, 250, 0.85) 25%,
-                    rgba(255, 239, 213, 0.85) 50%,
-                    rgba(230, 230, 250, 0.85) 75%,
-                    rgba(255, 209, 220, 0.85) 100%),
-                    url('background-movable.gif');
-            background-size: 400% 400%, cover;
-            background-position: center, center;
-            background-attachment: fixed;
-            animation: gradientFlow 15s ease infinite;
-            font-family: 'Quicksand', sans-serif;
-            overflow-x: hidden;
-            color: #4a4a4a;
+    background: linear-gradient(135deg,
+            rgba(255, 182, 193, 0.9) 0%,
+            rgba(255, 240, 245, 0.9) 25%,
+            rgba(255, 228, 225, 0.9) 50%,
+            rgba(255, 218, 185, 0.9) 75%,
+            rgba(255, 182, 193, 0.9) 100%),
+            url('background-movable.gif');
+    background-size: 400% 400%, cover;
+    background-position: center, center;
+    background-attachment: fixed;
+    animation: gradientFlow 15s ease infinite;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    overflow-x: hidden;
+    color: #5d4e75;
 }
 
 .custom-cursor {
@@ -49,38 +49,73 @@ body {
     z-index: 1;
 }
 
+/* Centered heading that appears after reasons */
+.center-heading {
+    margin: 3rem 0 2rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+}
+
+.center-heading h1 {
+    margin-bottom: 0;
+}
+
 h1 {
-    font-family: 'Bubblegum Sans', cursive;
-    font-size: 3rem;
-    /* CUSTOMIZE: Change primary color */
-    color: #ff69b4;
-    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    font-family: 'Georgia', serif;
+    font-size: 3.5rem;
+    /* Friendship theme gradient */
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 300% 300%;
+    animation: friendshipGradient 4s ease infinite;
+    text-shadow: 2px 2px 4px rgba(255, 107, 107, 0.3);
     margin-bottom: 2rem;
-    animation: bounce 1s ease infinite;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+}
+
+@keyframes friendshipGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .reason-card {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 2.5rem;
     margin: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(214, 51, 132, 0.15);
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    border: 2px solid rgba(255, 182, 193, 0.3);
 }
 
 .reason-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(214, 51, 132, 0.25);
+    border-color: rgba(255, 105, 180, 0.5);
 }
 
 .reason-text {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
     position: relative;
     z-index: 2;
+    font-family: 'Georgia', serif;
+    line-height: 1.5;
+    color: #5d4e75;
+    font-style: italic;
 }
 
 .gif-overlay {
@@ -103,32 +138,45 @@ h1 {
 }
 
 .shuffle-button {
-    /* CUSTOMIZE: Change button gradient */
-    background: linear-gradient(45deg, #ff69b4, #ff99cc);
+    /* Friendship theme button */
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    background-size: 300% 300%;
+    animation: friendshipButtonGlow 4s ease infinite;
     border: none;
     border-radius: 50px;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
     color: white;
     margin: 2rem 0;
     cursor: pointer;
     transition: all 0.3s;
-    font-family: 'Comic Neue', cursive;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+@keyframes friendshipButtonGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .shuffle-button.story-mode {
-    /* CUSTOMIZE: Change story mode button gradient */
-    background: linear-gradient(45deg, #9b6dff, #ff6dc7);
+    /* Friendship story mode button */
+    background: linear-gradient(45deg, #45b7d1, #96ceb4, #4ecdc4);
     transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(69, 183, 209, 0.5);
 }
 
 .shuffle-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
+    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.6);
 }
 
 .shuffle-button.story-mode:hover {
     transform: scale(1.2);
+    box-shadow: 0 15px 35px rgba(69, 183, 209, 0.7);
 }
 
 .floating {
@@ -189,9 +237,53 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    .reason-card { margin: 1rem; }
-    .reason-text { font-size: 1rem; }
+    h1 { 
+        font-size: 2.5rem; 
+        padding: 0 1rem;
+        line-height: 1.3;
+    }
+    .reason-card { 
+        margin: 1rem 0.5rem; 
+        padding: 1.5rem;
+    }
+    .reason-text { 
+        font-size: 1.1rem; 
+    }
+    .shuffle-button {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+        margin: 1.5rem 0;
+    }
+    .ending-text {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+    }
+    .teddy-hug {
+        width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { 
+        font-size: 2rem; 
+    }
+    .reason-card { 
+        margin: 1rem 0.25rem; 
+        padding: 1.2rem;
+    }
+    .reason-text { 
+        font-size: 1rem; 
+    }
+    .shuffle-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+    .ending-text {
+        font-size: 1.5rem;
+    }
+    .teddy-hug {
+        width: 150px;
+    }
 }
 
 /* Music Toggle Button */
@@ -263,4 +355,128 @@ h1 {
 @media (hover: none) and (pointer: coarse) {
     * { cursor: auto !important; }
     .cursor, .custom-cursor { display: none !important; }
+}
+/* Additional Sweet Romantic Styles for Wishes Page */
+
+/* Sweet romantic cursor */
+.custom-cursor {
+    width: 35px;
+    height: 35px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: multiply;
+    transition: transform 0.1s;
+}
+
+.custom-cursor svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 8px rgba(214, 51, 132, 0.6));
+}
+
+/* Sweet reason counter */
+.reason-counter {
+    font-size: 1rem;
+    /* Sweet counter color */
+    background: linear-gradient(45deg, #d63384, #ff69b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 1rem;
+    opacity: 0.8;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+/* Sweet ending section */
+.ending-text {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    /* Sweet ending color */
+    background: linear-gradient(45deg, #d63384, #ff69b4, #ff1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    font-style: italic;
+    text-shadow: 0 0 20px rgba(214, 51, 132, 0.3);
+}
+
+/* Sweet teddy hug styling */
+.teddy-hug {
+    width: 220px;
+    margin: 0 auto;
+    transform: scale(0);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(214, 51, 132, 0.3);
+}
+
+.teddy-hug img {
+    width: 100%;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.teddy-hug:hover img {
+    transform: scale(1.05);
+}
+
+/* Sweet floating elements */
+.floating {
+    position: fixed;
+    pointer-events: none;
+    animation: sweetFloat 4s ease-in-out infinite;
+    font-size: 1.8rem;
+    color: #ff69b4;
+    text-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+}
+
+@keyframes sweetFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(90deg); }
+    50% { transform: translateY(-30px) rotate(180deg); }
+    75% { transform: translateY(-15px) rotate(270deg); }
+}
+
+/* Sweet music and back buttons */
+.music-toggle, .back-btn {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    /* Sweet romantic gradient */
+    background: linear-gradient(45deg, #d63384, #ff69b4, #ff1493);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(214, 51, 132, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.music-toggle:hover, .back-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(214, 51, 132, 0.7);
+}
+
+/* Sweet gradient flow animation */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Sweet bounce animation */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }

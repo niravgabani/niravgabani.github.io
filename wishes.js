@@ -30,42 +30,37 @@ if (localStorage.getItem('musicPlaying') === 'true') {
 }
 
 // ===== CUSTOMIZE: Add your reasons here! =====
-// Each reason has:
-// - text: The message to display
-// - emoji: An emoji shown before the text
-// - gif: Animation file to show (optional, use animation-1.gif or animation-2.gif)
 const reasons = [
     {
-        text: "Because you always know how to make me smile, even on my worst days! 💖",
+        text: "Because you always know how to make me laugh, even when I'm having the worst day! 😊",
         emoji: "✨",
         gif: "gif1.gif"
     },
     {
-        text: "Because you're the most genuine and caring person I know! 🌸",
+        text: "Because you're the most loyal and trustworthy friend I've ever had! 🌟",
         emoji: "💫",
         gif: "gif2.gif"
     },
     {
-        text: "Because your laugh is absolutely contagious and brightens everyone's day! ✨",
+        text: "Because your positive energy is absolutely contagious and lifts everyone up! ✨",
         emoji: "🌟",
         gif: "gif1.gif"
     },
     {
-        text: "Because you're always there for me, no matter what! True friendship! 💕",
+        text: "Because you're always there to listen and give the best advice! True friendship! 💕",
         emoji: "🤗",
         gif: "gif2.gif"
     },
     {
-        text: "Because you make every moment we spend together special and memorable! 🎂",
-        emoji: "💖",
+        text: "Because every adventure with you becomes an unforgettable memory! 🎉",
+        emoji: "🎊",
         gif: "gif1.gif"
     },
     {
-        text: "Because you're turning 20 and you're simply amazing! Here's to another wonderful year of friendship! 🎉",
-        emoji: "🎊",
+        text: "Because you're turning 20 and you're absolutely amazing! Here's to the best friend ever! 🎂",
+        emoji: "🎈",
         gif: "gif2.gif"
     }
-    // Add more reasons as needed!
 ];
 
 // State management
@@ -115,6 +110,19 @@ function displayNewReason() {
 
         currentReasonIndex++;
 
+        // Show heading after first few reasons
+        if (currentReasonIndex === 3) {
+            const centerHeading = document.querySelector('.center-heading');
+            if (centerHeading) {
+                gsap.to(centerHeading, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "back.out"
+                });
+            }
+        }
+
         // Check if we should transform the button
         if (currentReasonIndex === reasons.length) {
             gsap.to(shuffleButton, {
@@ -123,7 +131,7 @@ function displayNewReason() {
                 ease: "elastic.out",
                 onComplete: () => {
                     // CUSTOMIZE: Change button text
-                    shuffleButton.textContent = "Continue to Timeline 💫";
+                    shuffleButton.textContent = "Continue to Our Journey 🌟";
                     shuffleButton.classList.add('story-mode');
                     shuffleButton.addEventListener('click', () => {
                         gsap.to('body', {
@@ -162,19 +170,20 @@ shuffleButton.addEventListener('click', () => {
 
 // Floating elements function
 function createFloatingElement() {
-    const elements = ['🌸', '✨', '💖', '🦋', '⭐'];
+    const elements = ['🌹', '✨', '💖', '🦋', '⭐', '💝', '🌸', '💕'];
     const element = document.createElement('div');
     element.className = 'floating';
     element.textContent = elements[Math.floor(Math.random() * elements.length)];
     element.style.left = Math.random() * window.innerWidth + 'px';
     element.style.top = Math.random() * window.innerHeight + 'px';
-    element.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    element.style.fontSize = (Math.random() * 25 + 15) + 'px';
     document.body.appendChild(element);
 
     gsap.to(element, {
-        y: -500,
-        duration: Math.random() * 10 + 10,
+        y: -600,
+        duration: Math.random() * 12 + 8,
         opacity: 0,
+        rotation: Math.random() * 360,
         onComplete: () => element.remove()
     });
 }

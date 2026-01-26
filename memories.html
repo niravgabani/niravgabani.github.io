@@ -99,19 +99,61 @@
             position: relative;
         }
 
+        /* Featured memory card (first image) - Full height and bright */
+        .featured-memory {
+            grid-column: 1 / -1;
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(255, 182, 193, 0.5);
+        }
+
+        .featured-img {
+            height: 600px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 20px;
+            filter: brightness(1.3) contrast(1.2) saturate(1.3);
+            transition: all 0.3s ease;
+        }
+
+        .featured-memory:hover .featured-img {
+            filter: brightness(1.4) contrast(1.3) saturate(1.4);
+            transform: scale(1.01);
+        }
+
         .memory-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 1.5rem;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            border: 2px solid rgba(255, 182, 193, 0.2);
         }
 
         .memory-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 105, 180, 0.4);
+        }
+
+        /* Enhanced styling for featured memory */
+        .featured-memory .memory-date {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .featured-memory .memory-caption {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 500;
         }
 
         .memory-card::before {
@@ -250,9 +292,66 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .welcome h1 { font-size: 3rem; }
-            .memory-container { grid-template-columns: 1fr; }
-            .final-message h2 { font-size: 2.5rem; }
+            .welcome h1 { 
+                font-size: 2.5rem; 
+                padding: 0 1rem;
+            }
+            .welcome p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            .memory-container { 
+                grid-template-columns: 1fr; 
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+            .featured-memory {
+                grid-column: 1;
+                margin-bottom: 2rem;
+                max-width: 100%;
+            }
+            .featured-img {
+                height: 400px;
+                filter: brightness(1.4) contrast(1.2) saturate(1.3);
+            }
+            .memory-img {
+                height: 200px;
+            }
+            .final-message h2 { 
+                font-size: 2rem; 
+                padding: 0 1rem;
+            }
+            .final-message p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            .goodbye-btn, .share-btn {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+                margin: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome h1 { 
+                font-size: 2rem; 
+            }
+            .memory-container {
+                padding: 0.5rem;
+            }
+            .memory-card {
+                padding: 1rem;
+            }
+            .featured-img {
+                height: 320px;
+                filter: brightness(1.5) contrast(1.3) saturate(1.4);
+            }
+            .memory-img {
+                height: 180px;
+            }
+            .final-message h2 { 
+                font-size: 1.8rem; 
+            }
         }
 
         /* Music Toggle Button */
@@ -363,45 +462,63 @@
 
     <section class="welcome">
         <!-- CUSTOMIZE: Change the title -->
-        <h1>Our Beautiful Memories</h1>
+        <h1>Our Amazing Memories</h1>
         <!-- CUSTOMIZE: Change the description -->
-        <p>Some moments are just meant to be treasured. Here's to all the laughs, talks, and unforgettable times we've shared, Niyati...</p>
+        <p>Every moment with you is a treasure, best friend! Here are some of our most amazing memories together...</p>
     </section>
 
     <div class="memory-container">
         <!-- CUSTOMIZE: Add your photos and captions -->
         <!-- Copy and paste memory-card blocks for more memories -->
 
-        <div class="memory-card">
-            <img src="./new_images/main.jpeg" alt="Special Memory with Niyati" class="memory-img">
+        <div class="memory-card featured-memory">
+            <img src="./new_images/main.jpeg" alt="Special Memory with Niyati" class="memory-img featured-img">
             <!-- CUSTOMIZE: Change date/title -->
-            <div class="memory-date">A Special Day</div>
+            <div class="memory-date">Special Moments</div>
             <!-- CUSTOMIZE: Change caption -->
-            <div class="memory-caption">The best memories are made with the best people. So grateful for every moment we share, Niyati! 💫</div>
+            <div class="memory-caption">This is one of my favorite photos of you, Niyati! Your smile always brightens my day! 🌟</div>
         </div>
 
         <div class="memory-card">
             <img src="./new_images/WhatsApp Image 2026-01-26 at 5.28.19 PM.jpeg" alt="Beautiful Moments" class="memory-img">
-            <div class="memory-date">Beautiful Moments</div>
-            <div class="memory-caption">You radiate positivity wherever you go. Keep shining bright, birthday girl! ✨</div>
+            <div class="memory-date">Amazing Friend</div>
+            <div class="memory-caption">You're such an incredible person and an even better friend. So grateful to have you in my life! ✨</div>
         </div>
 
         <div class="memory-card">
             <img src="./new_images/WhatsApp Image 2026-01-26 at 5.31.11 PM.jpeg" alt="Fun Times" class="memory-img">
-            <div class="memory-date">Fun Times Together</div>
-            <div class="memory-caption">Every moment with you is filled with joy and laughter. Here's to many more amazing memories! 🎂💖</div>
+            <div class="memory-date">Fun Times</div>
+            <div class="memory-caption">Every moment with you is filled with joy and laughter. You're the best friend anyone could ask for! 🎉</div>
         </div>
 
         <div class="memory-card">
             <img src="./new_images/WhatsApp Image 2026-01-26 at 5.36.44 PM.jpeg" alt="Friendship Goals" class="memory-img">
-            <div class="memory-date">Friendship Goals</div>
-            <div class="memory-caption">This is what true friendship looks like! Thank you for being such an incredible friend, Niyati! 💕</div>
+            <div class="memory-date">Best Friend</div>
+            <div class="memory-caption">You are the most amazing best friend, Niyati! Thank you for being such an incredible person! 💕</div>
         </div>
 
         <div class="memory-card">
             <img src="./new_images/WhatsApp Image 2026-01-26 at 5.36.45 PM.jpeg" alt="Birthday Vibes" class="memory-img">
-            <div class="memory-date">Birthday Vibes</div>
-            <div class="memory-caption">Another year of celebrating you! Here's to making this 20th birthday even more special! 🎂💖</div>
+            <div class="memory-date">Birthday Princess</div>
+            <div class="memory-caption">Happy 20th Birthday to the most beautiful soul I know! You deserve all the love in the world! 🎂💖</div>
+        </div>
+
+        <div class="memory-card">
+            <img src="./new_images/WhatsApp Image 2026-01-26 at 10.345.30 PM.jpeg" alt="Sweet Memories" class="memory-img">
+            <div class="memory-date">Sweet Memories</div>
+            <div class="memory-caption">Creating beautiful memories together! Every moment with you is precious and unforgettable! 💫</div>
+        </div>
+
+        <div class="memory-card">
+            <img src="./new_images/WhatsApp Image 2026-01-26 at 10.35.29 PM.jpeg" alt="Friendship Goals" class="memory-img">
+            <div class="memory-date">Friendship Goals</div>
+            <div class="memory-caption">This is what true friendship looks like! You make every day brighter, Niyati! 🌟</div>
+        </div>
+
+        <div class="memory-card">
+            <img src="./new_images/WhatsApp Image 2026-01-26 at 10.35.30 PM.jpeg" alt="Amazing Times" class="memory-img">
+            <div class="memory-date">Amazing Times</div>
+            <div class="memory-caption">So many wonderful adventures and memories we've shared! Here's to many more! 🎊</div>
         </div>
     </div>
 
@@ -409,12 +526,12 @@
         <!-- CUSTOMIZE: Change name and age -->
         <h2>Happy 20th Birthday, Niyati! 🎂</h2>
         <!-- CUSTOMIZE: Change the message -->
-        <p>From our first meeting to becoming inseparable best friends - what a journey! 💫<br>
-            Through every moment, every laugh, every memory - you've been absolutely amazing.<br>
-            Here's to another year of our wonderful friendship and celebrating YOU! 🎉</p>
-        <p>You deserve all the happiness in the world. Keep being the incredible person you are! ✨</p>
+        <p>From the day we became friends to this amazing milestone - you've brought so much joy to my life! 🌟<br>
+            Through every laugh, every adventure, every precious moment - you've been the best friend ever.<br>
+            Here's to celebrating the most incredible person and friend I know! 🎉</p>
+        <p>You deserve all the happiness and success in the world. Keep being the amazing person you are! ✨</p>
         <!-- CUSTOMIZE: Change your name -->
-        <p class="signature">- With love, Your Best Friend 💖</p>
+        <p class="signature">- Your Best Friend Forever 💖</p>
         <a href="#" class="goodbye-btn" onclick="celebrate()">Celebrate Niyati! 🎊</a>
         <button class="share-btn" onclick="shareWebsite()">Share This 💌</button>
     </section>

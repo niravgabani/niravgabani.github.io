@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const birthdayDate = new Date('January 26, 2026 00:00:00').getTime();
 
     // CUSTOMIZE: Change this greeting message
-    const greetingText = "Hey Niyati! You're one of the most amazing people I've ever known! Happy 20th Birthday! 💖";
+    const greetingText = "Hey Niyati! You're the most incredible best friend anyone could ask for! Happy 20th Birthday, amazing soul! 🎉✨";
 
     // CUSTOMIZE: Change floating elements if desired
-    const floatingElements = ['💖', '✨', '🌸', '💫', '💕'];
+    const floatingElements = ['💖', '✨', '🌹', '💫', '💕', '🦋', '💝', '🌸'];
 
     // ===== DOM ELEMENTS =====
     const countdownSection = document.getElementById('countdown-section');

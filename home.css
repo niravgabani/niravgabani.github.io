@@ -11,25 +11,26 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* CUSTOMIZE: Change gradient colors for different theme */
-    background: linear-gradient(-45deg, #fee9f7, #e8f5fe, #fef2e8, #f0ffe8);
+    /* Sweet romantic gradient */
+    background: linear-gradient(-45deg, #ffb3d9, #ffe6f2, #fff0f5, #ffeef8, #ffcce5);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
-    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+    font-family: 'Georgia', 'Times New Roman', serif;
     overflow: hidden;
     position: relative;
 }
 
 .cursor {
-    width: 20px;
-    height: 20px;
-    /* CUSTOMIZE: Change cursor color */
-    background: pink;
+    width: 25px;
+    height: 25px;
+    /* Sweet heart cursor */
+    background: radial-gradient(circle, #ff69b4, #ff1493);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    mix-blend-mode: difference;
+    mix-blend-mode: multiply;
     transition: transform 0.2s;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
 }
 
 .container {
@@ -43,12 +44,14 @@ body {
 }
 
 .countdown-title {
-    font-size: 2.5rem;
-    /* CUSTOMIZE: Change primary color */
-    color: #ff69b4;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    font-size: 2.8rem;
+    /* Sweet romantic color */
+    color: #d63384;
+    text-shadow: 0 0 20px rgba(214, 51, 132, 0.5);
     margin-bottom: 2rem;
     animation: fadeInScale 1s ease;
+    font-family: 'Georgia', serif;
+    font-style: italic;
 }
 
 .countdown-timer {
@@ -106,39 +109,62 @@ body {
 }
 
 h1 {
-    font-size: 3.5rem;
-    /* CUSTOMIZE: Change title color */
-    color: #ff69b4;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    font-size: 4rem;
+    /* Friendship theme colors */
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 300% 300%;
+    animation: friendshipGradient 4s ease infinite;
+    text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
     margin-bottom: 2rem;
     opacity: 0;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+}
+
+@keyframes friendshipGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .greeting {
-    font-size: 1.5rem;
-    /* CUSTOMIZE: Change greeting color */
-    color: #8a2be2;
+    font-size: 1.6rem;
+    /* Sweet message color */
+    color: #8b5a83;
     margin-bottom: 3rem;
     min-height: 2em;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    line-height: 1.4;
 }
 
 .cta-button {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    /* CUSTOMIZE: Change button gradient */
-    background: linear-gradient(45deg, #ff69b4, #ff99cc);
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+    /* Friendship theme button */
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    background-size: 300% 300%;
+    animation: friendshipGradient 4s ease infinite;
     border: none;
     border-radius: 50px;
     color: white;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+    box-shadow: 0 0 25px rgba(255, 107, 107, 0.6);
     transition: transform 0.3s, box-shadow 0.3s;
     opacity: 0;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .cta-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 105, 180, 0.7);
+    transform: scale(1.15);
+    box-shadow: 0 0 35px rgba(255, 107, 107, 0.8);
 }
 
 .floating {
@@ -154,9 +180,68 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    .greeting { font-size: 1.2rem; }
-    .cta-button { font-size: 1rem; }
+    h1 { 
+        font-size: 2.5rem; 
+        padding: 0 1rem;
+        line-height: 1.3;
+    }
+    .greeting { 
+        font-size: 1.2rem; 
+        padding: 0 1rem;
+    }
+    .cta-button { 
+        font-size: 1rem; 
+        padding: 1rem 2rem;
+    }
+    .countdown-timer {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    .countdown-item {
+        padding: 1.2rem 1.5rem;
+        min-width: 80px;
+    }
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+    .countdown-title {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+    .nickname-text {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+    }
+    .from-text {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { 
+        font-size: 2rem; 
+    }
+    .countdown-title {
+        font-size: 1.8rem;
+    }
+    .countdown-timer {
+        gap: 0.5rem;
+    }
+    .countdown-item {
+        padding: 1rem 1.2rem;
+        min-width: 70px;
+    }
+    .countdown-number {
+        font-size: 2rem;
+    }
+    .greeting { 
+        font-size: 1rem; 
+    }
+    .cta-button { 
+        font-size: 0.9rem; 
+        padding: 0.8rem 1.5rem;
+    }
 }
 
 /* Music Toggle Button */
@@ -294,4 +379,136 @@ h1 {
 @media (hover: none) and (pointer: coarse) {
     * { cursor: auto !important; }
     .cursor { display: none !important; }
+}
+
+/* Additional Sweet Romantic Styles */
+.nickname-text {
+    font-size: 1.4rem;
+    /* Sweet romantic color */
+    background: linear-gradient(45deg, #d63384, #ff69b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.5s forwards;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+.from-text {
+    font-size: 1.2rem;
+    /* Sweet romantic color */
+    color: #8b5a83;
+    font-style: italic;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+    font-family: 'Georgia', serif;
+}
+
+/* Sweet floating hearts */
+.floating {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    font-size: 1.5rem;
+    color: #ff69b4;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+/* Level up badge with sweet styling */
+.level-up-badge {
+    display: inline-block;
+    background: linear-gradient(45deg, #ffd700, #ffed4a, #ffd700);
+    background-size: 200% 200%;
+    animation: shimmer 2s ease-in-out infinite, levelUpPop 0.6s ease-out;
+    color: #333;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    font-family: 'Georgia', serif;
+}
+
+/* Sweet loading screen */
+.loading-text {
+    font-size: 1.6rem;
+    /* Sweet loading color */
+    background: linear-gradient(45deg, #d63384, #ff69b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 1rem;
+    animation: pulse 1.5s ease-in-out infinite;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+/* Sweet music button */
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    /* Sweet romantic gradient */
+    background: linear-gradient(45deg, #d63384, #ff69b4, #ff1493);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(214, 51, 132, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.music-toggle:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(214, 51, 132, 0.7);
+}
+
+/* Sweet countdown styling */
+.countdown-item {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 1.8rem 2.2rem;
+    min-width: 110px;
+    box-shadow: 0 12px 35px rgba(214, 51, 132, 0.25);
+    transition: transform 0.3s;
+    border: 2px solid rgba(255, 182, 193, 0.3);
+}
+
+.countdown-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(214, 51, 132, 0.35);
+}
+
+.countdown-number {
+    display: block;
+    font-size: 3.2rem;
+    font-weight: bold;
+    /* Sweet number color */
+    background: linear-gradient(45deg, #d63384, #ff69b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    font-family: 'Georgia', serif;
+}
+
+.countdown-label {
+    display: block;
+    font-size: 1rem;
+    /* Sweet label color */
+    color: #8b5a83;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    font-family: 'Georgia', serif;
+    font-weight: 600;
 }
